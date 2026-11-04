@@ -1,0 +1,22 @@
+{
+  "approved_tasks": {},
+  "authorization_basis": "Only tasks listed in approved_tasks (task id mapped to the SHA-256 of the exact task) may run, and only from the standard Franka Ready Home.",
+  "required_home": {
+    "name": "Franka standard Ready",
+    "joint_angles_deg": [
+      0,
+      -45,
+      0,
+      -135,
+      0,
+      90,
+      45
+    ],
+    "position_tolerance_m": 0.005,
+    "orientation_tolerance_deg": 1,
+    "each_joint_tolerance_deg": 1,
+    "required_at_start": true,
+    "required_at_return": true
+  },
+  "component_speed_percent": 30
+}

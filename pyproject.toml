@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "franka-mcp"
+version = "0.1.1"
+description = "MCP server for the physical Franka FR3's Desk API"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["mcp==1.30.0"]
+
+[project.scripts]
+franka-mcp = "franka_mcp.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["franka_mcp*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+# tomato_versioning.py is a local-only helper that is not committed.
+extend-exclude = ["archive", "plans", "diagnostics", "franka_mcp/authoring/tomato_versioning.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+# Long lines are tool descriptions and messages pinned by tests/golden; zip() lengths are checked explicitly.
+ignore = ["E501", "B905"]
